@@ -3,10 +3,162 @@ import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const data = [
+  {
+    city: "Paris",
+    name: "Adrien Joly",
+    avatar: "", // image ou avatar fictif
+    desc: 'Ingénieur logiciel passionné et polyvalent. Co-créateur du podcast "le SAV de la Tech"...',
+    talks: [
+      {
+        title:
+          "Détecter les bugs JS depuis son IDE: TSDoc et autres recettes pratiques",
+        abstract: "abstract",
+        tags: ["Code Legacy", "JavaScript", "Bugs"],
+      },
+      {
+        title: "Code legacy: les clés pour s’en sortir !",
+        tags: ["Code Legacy", "Tech Leadership", "Planification"],
+      },
+    ],
+  },
+  {
+    city: "Nantes",
+    name: "Adrien Lecharpentier",
+    avatar: "",
+    desc: "Software Engineer chez CloudBees, je travaille sur Jenkins OSS...",
+    talks: [
+      {
+        title: "Jenkins Pipeline 101",
+        tags: ["Jenkins", "Pipeline"],
+      },
+      {
+        title: "Jenkins 2.0",
+        tags: ["Jenkins"],
+      },
+    ],
+  },
+  {
+    city: "Lyon",
+    name: "Agnès Crépêt",
+    avatar: "",
+    desc: "Java Champion et leader de deux Java User Groups...",
+    talks: [
+      {
+        title: "Faire partie de l’équipe sans s’oublier",
+        tags: ["Java", "Leadership", "Inclusion"],
+      },
+    ],
+  },
+];
 ---
 
 <Layout>
-  <main class="min-h-screen bg-gray-100 flex items-center justify-center">
-    <h1 class="text-4xl font-bold text-blue-600">Hello Astro + Tailwind!</h1>
-  </main>
+  <div class="min-h-screen bg-gray-100 text-gray-900">
+    <header
+      class="bg-gray-900 text-white p-4 flex justify-between items-center"
+    >
+      <div class="text-xl font-bold">🥪 BrownBagLunch</div>
+      <input
+        type="search"
+        placeholder="Chercher un(e) bagger, une technologie..."
+        class="rounded px-4 py-1 text-black w-96"
+      />
+    </header>
+
+    <div class="flex">
+      <aside
+        class="w-64 bg-white border-r p-4 overflow-y-auto h-screen sticky top-0"
+      >
+        <h2 class="font-bold mb-2">Choisissez la ville</h2>
+        <ul class="space-y-1 text-sm">
+          <li class="font-semibold">
+            Toutes les villes <span class="ml-1 text-blue-600">(342)</span>
+          </li>
+          {
+            [
+              "Aix-en-Provence",
+              "Amiens",
+              "Bayonne",
+              "Lille",
+              "Paris",
+              "Nantes",
+              "Lyon",
+              "Rennes",
+              "Strasbourg",
+            ].map((city) => (
+              <li
+                key={city}
+                class="flex justify-between hover:bg-gray-100 px-2 py-1 rounded cursor-pointer"
+              >
+                <span>{city}</span>
+                <span class="text-blue-600">
+                  ({Math.floor(Math.random() * 100)})
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </aside>
+
+      <main class="flex-1 p-6 overflow-y-auto">
+        <h1 class="text-2xl font-bold mb-4">342 baggers</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {
+            data.map((bagger) => (
+              <div key={bagger.name} class="bg-white rounded shadow p-4 border">
+                <div class="relative">
+                  <img
+                    src={`https://source.unsplash.com/600x120/?${bagger.city}`}
+                    alt={bagger.city}
+                    class="w-full h-28 object-cover rounded"
+                  />
+                  <div class="absolute top-2 left-2 bg-black/60 text-white px-2 rounded text-sm font-bold">
+                    {bagger.city}
+                  </div>
+                </div>
+                <div class="flex items-center mt-4 space-x-3">
+                  <div class="w-12 h-12 bg-gray-300 rounded-full" />
+                  <div class="flex-1">
+                    <h3 class="font-bold text-lg">{bagger.name}</h3>
+                    <p class="text-sm text-gray-600">{bagger.desc}</p>
+                  </div>
+                  <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm">
+                    📩 Inviter
+                  </button>
+                </div>
+                <div class="mt-4 space-y-2">
+                  {bagger.talks.map((talk, i) => (
+                    <details
+                      key={i}
+                      className="rounded border border-gray-200 bg-gray-50 p-3 open:shadow-sm transition-all"
+                    >
+                      <summary className="cursor-pointer font-semibold text-sm hover:underline">
+                        {talk.title}
+                      </summary>
+
+                      <div clss="mt-2 text-sm text-gray-700">
+                        <p>{talk.abstract}</p>
+
+                        <div class="mt-2 flex flex-wrap gap-2">
+                          {talk.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              class="text-xs px-2 py-0.5 rounded-full font-medium bg-blue-100 text-blue-800"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </main>
+    </div>
+  </div>
 </Layout>
