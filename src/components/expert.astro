@@ -1,9 +1,10 @@
 ---
-import type { Speaker } from "../content.config"
+import type {Speaker} from '../content.config';
 
 interface Props {
-    speaker: Speaker
+  speaker: Speaker;
 }
+
 const { speaker } = Astro.props;
 ---
 
@@ -13,8 +14,7 @@ const { speaker } = Astro.props;
     <img class="u-photo" src={speaker.picture ?? "/assets/img/expert-thumb.svg"} alt="" />
   </h3>
   <div class="p-note editorial">
-    <p set:html={speaker.bio}>
-    </p>
+    <p set:html={speaker.bio}}></p>
     <ul class="keywords">
       {Array.from(new Set(speaker.sessions?.map(t => t.tags).flat())).map(t => <li>{t}</li>)}
     </ul>
@@ -22,7 +22,7 @@ const { speaker } = Astro.props;
   <p class="p-location">{speaker.location ?? "Remote"}</p>
   <div class="talks">
     <h4>Talks proposés</h4>
-    {(speaker.sessions ?? []).map(s => <details name="talks" class="talk">
+    {(speaker.sessions ?? []).map((s, i) => <details name="talks" class="talk">
       <summary> {s.title} </summary>
       <div class="content editorial">
         <p>

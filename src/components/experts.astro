@@ -1,0 +1,22 @@
+---
+import type {Speaker} from "../content.config";
+import Expert from "./expert.astro";
+
+interface Props {
+    speakers: Speaker[];
+}
+const { speakers } = Astro.props;
+---
+
+<div class="results">
+        <h2 class="highlight">{speakers.length} experts trouvés</h2>
+
+        <div class="gallery">
+            {
+                speakers.map((s) => {
+                    return <Expert speaker={s} />    
+                })
+            }
+            
+        </div>
+    </div>

@@ -29,7 +29,7 @@ const cities = defineCollection({
 
 const speakerSchema = z.object({
   name: z.string(),
-  bio: z.string().optional(),
+  bio: z.string(),
   company: z.string().optional(),
   role: z.string().optional(),
   picture: z.string().optional(),
@@ -44,7 +44,7 @@ const speakerSchema = z.object({
     .array(
       z.object({
         title: z.string(),
-        abstract: z.string().optional(),
+        abstract: z.string(),
         lang: z.array(z.string()).optional(),
         tags: z.array(z.string()).optional(),
       })

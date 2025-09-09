@@ -1,61 +1,81 @@
 ---
-import {getCollection} from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Expert from "../components/expert.astro";
+import Speakers from "../components/experts.astro";
 const og = {
   ogUrl: "https://brownbaglunch.fr/experts.html",
   ogImage: "/assets/img/logo.svg",
-  ogDescription: "blabla"
+  ogDescription: "blabla",
 };
+
+export const prerender = false;
+
+const url = new URL(Astro.request.url);
+
+const searchParams = url.searchParams;
+
+const town = searchParams.get("ip-town") ?? "";
+const search = searchParams.get("ip-search") ?? "";
+
+console.log({ town, search });
 
 const currSection = "experts";
 const lang = "fr";
 
 const cities = await getCollection("cities");
-const speakers = await getCollection("speakers");
+const allSpeakers = await getCollection("speakers");
+
+const speakers = allSpeakers.filter((s) => {
+  if (town && town !== "Toutes les villes" && s.data.location !== town) {
+    return false;
+  }
+  if (search) {
+    const lcSearch = search.toLowerCase();
+    if (
+      !s.data.name.toLowerCase().includes(lcSearch) &&
+      !s.data.bio.toLowerCase().includes(lcSearch) &&
+      !(s.data.sessions ?? []).some(
+        (t) =>
+          t.title.toLowerCase().includes(lcSearch) ||
+          t.abstract.toLowerCase().includes(lcSearch) ||
+          (t.tags ?? []).some((tag) => tag.toLowerCase().includes(lcSearch))
+      )
+    ) {
+      return false;
+    }
+  }
+  return true;
+});
 ---
 
-<Layout 
-	title="Index" 
-	currSection={ currSection } 
-	lang={ lang } 
-	og={ og }>
-	
-    <h1>Trouver un expert</h1>
+<Layout title="Index" currSection={currSection} lang={lang} og={og}>
+  <h1>Trouver un expert</h1>
 
-    <form class="search highlight">
-        <p>
-            <label for="ip-town">Rechercher par Ville</label>
-            <input id="ip-town" name="ip-town" list="towns">
+  <form class="search highlight">
+    <p>
+      <label for="ip-town">Rechercher par Ville</label>
+      <input id="ip-town" name="ip-town" list="towns" value={town} />
 
-            <datalist id="towns">
-                <option value="Toutes les villes"></option>
-               {cities.map((c) => <option value={c.data.name}>{c.data.name} {c.data.number}</option>)}
-            </datalist>
-        </p>
-        <p>
-            <label for="ip-tech">Rechercher par expert ou techno</label>
-            <input id="ip-search" name="ip-search">
-        </p>
-        <p class="buttons-bar">
-            <input type="submit" value="Rechercher">
-            <input type="reset" value="Annuler">
-        </p>
-    </form>
+      <datalist id="towns">
+        <option value="Toutes les villes"></option>
+        {
+          cities.map((c) => (
+            <option value={c.data.name}>
+              {c.data.name} {c.data.number}
+            </option>
+          ))
+        }
+      </datalist>
+    </p>
+    <p>
+      <label for="ip-search">Rechercher par expert ou techno</label>
+      <input id="ip-search" name="ip-search" value={search} />
+    </p>
+    <p class="buttons-bar">
+      <input type="submit" value="Rechercher" />
+      <input type="reset" value="Annuler" />
+    </p>
+  </form>
 
-    <div class="results">
-        <h2 class="highlight">{speakers.length} experts trouvés</h2>
-
-        <div class="gallery">
-            {
-                speakers.map(s => {
-                    const data = s.data;
-                    return <Expert speaker={data} />    
-                })
-            }
-            
-        </div>
-    </div>
-
+  <Speakers speakers={speakers.map((s) => s.data)} />
 </Layout>
-
