@@ -1,5 +1,7 @@
 import { z } from "astro/zod";
 import { defineCollection } from "astro:content";
+import { speakers as speakersData } from "./data/bagger";
+import { cities as citiesData } from "./data/cities";
 
 const citySchema = z.object({
   name: z.string(),
@@ -13,14 +15,12 @@ export type City = z.infer<typeof citySchema>;
 
 const cities = defineCollection({
   loader: async () => {
-    const { cities } = await import("./data/cities");
-    const { speakers } = await import("./data/bagger");
-    return cities
+    return citiesData
       .sort((c1, c2) => c1.name.localeCompare(c2.name))
       .map((city) => ({
         ...city,
         id: city.name.toLowerCase().replace(/\s+/g, "-"),
-        number: speakers.filter((s) => s.location === city.name).length,
+        number: speakersData.filter((s) => s.location === city.name).length,
       }))
       .filter((c) => c.number > 0);
   },
@@ -51,11 +51,11 @@ const speakerSchema = z.object({
     )
     .optional(),
 });
+
 const speakers = defineCollection({
   schema: speakerSchema,
   loader: async () => {
-    const { speakers } = await import("./data/bagger");
-    return speakers
+    return speakersData
       .map((s) => ({ ...s, id: s.name.toLowerCase().replace(/\s+/g, "-") }))
       .sort((a, b) => a.name.localeCompare(b.name));
   },
