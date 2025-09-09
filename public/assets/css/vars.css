@@ -1,0 +1,70 @@
+/* -------------------
+
+Brown Bag Lunch
+CSS Custom Properties
+
+----------------------*/
+
+
+@font-face {
+    font-family: "Outfit";
+    src: url("Outfit-VariableFont_wght.ttf");
+    font-weight: 300 900;
+    font-display: swap;                 /* first paint policy */
+    size-adjust: 102%;                  /* match fallback x-height */
+    ascent-override: 92%;               /* align baseline */
+    descent-override: 8%;               /* balance descenders */
+    line-gap-override: normal;          /* stabilise line height */
+    unicode-range: U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153,
+        U+02BC, U+02C6, U+02DA, U+02DC, U+0300-0304, U+0308, U+030A, U+0327,
+        U+2013-2014, U+2018-201A, U+201C-201E, U+2022, U+2026, U+2039-203A,
+        U+2044, U+2074, U+20AC, U+2212, U+2215, U+2713, U+FB01-FB02;
+}
+@font-face {
+  font-family: "Unbounded";
+  src: url("Unbounded-VariableFont_wght.ttf");
+  font-weight: 300 900;
+  font-display: swap;                 /* first paint policy */
+  size-adjust: 102%;                  /* match fallback x-height */
+  ascent-override: 92%;               /* align baseline */
+  descent-override: 8%;               /* balance descenders */
+  line-gap-override: normal;          /* stabilise line height */
+  unicode-range: U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153,
+        U+02BC, U+02C6, U+02DA, U+02DC, U+0300-0304, U+0308, U+030A, U+0327,
+        U+2013-2014, U+2018-201A, U+201C-201E, U+2022, U+2026, U+2039-203A,
+        U+2044, U+2074, U+20AC, U+2212, U+2215, U+2713, U+FB01-FB02;
+}
+  
+  :root {
+    --main-color: #D3C4B2;
+    --main-light: color-mix(in srgb, var(--n-01), var(--main-color) 50%);
+    --main-dark: #C0AB8F;
+    --highlight-01: #B6DADB;
+    --highlight-02: #DEE2BD;
+    --highlight-03: #F5B174;
+    --highlight-04: #9d4a8b;
+
+    --n-00: #FFF;
+    --n-01: #F4F4F4;
+    --n-02: #B9BAB9;
+    --n-02b: #4D4D4D;
+    --n-03: #757A78;
+    --n-04: #212322;
+    --n-05: #000;
+
+    --body-text: var(--n-04);
+    --text-inv: #FFF;
+    --body-bg: var(--main-color);
+
+    --radius: 0.5rem;
+  
+    --stack: "Outfit", Calibri, Roboto, "Droid Sans", Helvetica, Arial, sans-serif;
+    --stack-h: "Unbounded", Calibri, Roboto, "Droid Sans", Helvetica, Arial, sans-serif;
+    --fvs-black: "wght" 900;
+    --fvs-bold: "wght" 700;
+    --fvs-medium: "wght" 500;
+    --fvs-light: "wght" 300;
+
+    --main-m-bottom: calc(3rem + 1vw);
+  }
+  

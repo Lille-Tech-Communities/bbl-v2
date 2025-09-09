@@ -1,0 +1,75 @@
+---
+import type { Speaker } from "../content.config"
+
+interface Props {
+    speaker: Speaker
+}
+const { speaker } = Astro.props;
+---
+
+<section class="speaker-sheet h-card">
+  <h3>
+    <span class="p-name">{ speaker.name }</span>
+    <img class="u-photo" src={speaker.picture ?? "/assets/img/expert-thumb.svg"} alt="" />
+  </h3>
+  <div class="p-note editorial">
+    <p set:html={speaker.bio}>
+    </p>
+    <ul class="keywords">
+      {Array.from(new Set(speaker.sessions?.map(t => t.tags).flat())).map(t => <li>{t}</li>)}
+    </ul>
+  </div>
+  <p class="p-location">{speaker.location ?? "Remote"}</p>
+  <div class="talks">
+    <h4>Talks proposés</h4>
+    {(speaker.sessions ?? []).map(s => <details name="talks" class="talk">
+      <summary> {s.title} </summary>
+      <div class="content editorial">
+        <p>
+          {s.abstract}
+        </p>
+        {s.tags && s.tags.length > 0 && <ul class="keywords">
+          {s.tags.map(t => <li>{t}</li>)}
+        </ul>}
+      </div>
+    </details>)}
+    
+  </div>
+  <div class="contact">
+    <h4>Contact</h4>
+    <ul>
+      {speaker.mastodon && <li>
+        <a href={speaker.mastodon}>
+          <svg role="img" width="24" height="24">
+            <title>Mastodon</title>
+            <use href="/assets/img/sprite.svg#mastodon"></use>
+          </svg>
+        </a>
+      </li>}
+      {speaker.twitter && <li>
+        <a href={speaker.twitter}>
+          <svg role="img" width="24" height="24">
+            <title>Twitter</title>
+            <use href="/assets/img/sprite.svg#twitter"></use>
+          </svg>
+        </a>
+      </li>}
+      {speaker.linkedin && <li>
+        <a href={speaker.linkedin}>
+          <svg role="img" width="24" height="24">
+            <title>Linkedin</title>
+            <use href="/assets/img/sprite.svg#linkedin"></use>
+          </svg>
+        </a>
+      </li>}
+      {speaker.github && <li>
+        <a href={speaker.github}>
+          <svg role="img" width="24" height="24">
+            <title>Github</title>
+            <use href="/assets/img/sprite.svg#github"></use>
+          </svg>
+        </a>
+      </li>}
+    </ul>
+  </div>
+</section>

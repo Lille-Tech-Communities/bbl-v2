@@ -1,0 +1,246 @@
+export const cities = [
+    {
+      name: 'Aix-en-Provence',
+      ville_img: 'img/villes/BBL_Aix-en-provence.png',
+      lat: 43.529742,
+      lng: 5.447427,
+    },
+     {
+      name: 'Amiens',
+      ville_img: 'img/villes/BBL.jpg',
+      lat: 49.8985408,
+      lng: 2.2145978,
+    }, {
+      name: 'Avignon',
+      ville_img: 'img/villes/BBL_Avignon.jpg',
+      lat: 43.941557,
+      lng: 4.8332525,
+    }, {
+      name: 'Bayonne',
+      ville_img: 'img/villes/BBL_Bayonne.png',
+      lat: 43.4843941,
+      lng: -1.4961697,
+    }, {
+      name: 'Belfort',
+      ville_img: 'img/villes/BBL_Belfort.png',
+      lat: 47.6456257,
+      lng: 6.8060504,
+    }, {
+      name: 'Besançon',
+      ville_img: 'img/villes/BBL_Besancon.png',
+      lat: 47.2601941,
+      lng: 5.9420574,
+    }, {
+      name: 'Biarritz',
+      ville_img: 'img/villes/BBL_Biarritz.png',
+      lat: 43.4709797,
+      lng: -1.573345,
+    }, {
+      name: 'Bordeaux',
+      ville_img: 'img/villes/BBL_Bordeaux.jpg',
+      lat: 44.837789,
+      lng: -0.57918,
+    },{
+      name: 'Brest',
+      ville_img: 'img/villes/BBL_Brest.jpg',
+      lat: 48.390394,
+      lng: -4.486076,
+    }, {
+      name: 'Caen',
+      ville_img: 'img/villes/BBL_Caen.jpg',
+      lat: 49.1846,
+      lng: -0.3723,
+    },{
+      name: 'Chartres',
+      ville_img: 'img/villes/BBL_Chartres.png',
+      lat: 48.4469,
+      lng: 1.4892,
+    }, {
+      name: 'Clermont-Ferrand',
+      ville_img: 'img/villes/BBL_Clermont.jpg',
+      lat: 45.78333,
+      lng: 3.08333,
+    }, {
+      name: 'Epinal',
+      ville_img: 'img/villes/BBL_Epinal.jpg',
+      lat: 48.1221,
+      lng: 6.8912,
+    },{
+      name: "Faa'a",
+      ville_img: 'img/villes/BBL.jpg',
+      lat: -17.551,
+      lng: -149.5974,
+    },{
+      name: 'Grenoble',
+      ville_img: 'img/villes/BBL_Grenoble.jpg',
+      lat: 45.183,
+      lng: 5.717,
+    },{
+      name: 'Le Mans',
+      ville_img: 'img/villes/BBL_leMans.jpg',
+      lat: 47.995084,
+      lng: 0.188359,
+    }, {
+      name: 'La Rochelle',
+      ville_img: 'img/villes/BBL.jpg',
+      lat: 46.158163,
+      lng: -1.153645,
+    }, {
+      name: "Les Sables-d'Olonne",
+      ville_img: 'img/villes/BBL.jpg',
+      lat: 46.5002031,
+      lng: -1.7924568,
+    },{
+      name: 'Lille',
+      ville_img: 'img/villes/BBL_Lille.jpg',
+      lat: 50.637222,
+      lng: 3.063333,
+    },{
+      name: 'Lyon',
+      ville_img: 'img/villes/BBL_Lyon.jpg',
+      lat: 45.764043,
+      lng: 4.835659,
+    }, {
+      name: 'Luxembourg',
+      ville_img: 'img/villes/BBL_Luxembourg.png',
+      lat: 49.61167,
+      lng: 6.13,
+    }, {
+      name: 'Marseille',
+      ville_img: 'img/villes/BBL.jpg',
+      lat: 43.3,
+      lng: 5.4,
+    },{
+      name: 'Metz',
+      ville_img: 'img/villes/BBL_Metz.png',
+      lat: 49.133333,
+      lng: 6.166667,
+    }, {
+      name: 'Montpellier',
+      ville_img: 'img/villes/BBL_Montpellier.jpg',
+      lat: 43.610769,
+      lng: 3.876716,
+    },{
+      name: 'Montréal',
+      ville_img: 'img/villes/BBL_Montreal.jpg',
+      lat: 45.501689,
+      lng: -73.567256,
+    }, {
+      name: 'Mulhouse',
+      ville_img: 'img/villes/BBL_Mulhouse.png',
+      lat: 47.7526806,
+      lng: 7.2905194,
+    },{
+      name: 'Nancy',
+      ville_img: 'img/villes/BBL_Nancy.png',
+      lat: 48.6880796,
+      lng: 6.1558845,
+    },{
+      name: 'Nantes',
+      ville_img: 'img/villes/BBL_Nantes.jpg',
+      lat: 47.219102,
+      lng: -1.551132,
+    }, {
+      name: 'Nice',
+      ville_img: 'img/villes/BBL_Sophia.png',
+      lat: 43.695719,
+      lng: 7.264419,
+    }, {
+      name: 'Orléans',
+      ville_img: 'img/villes/BBL_Orleans.png',
+      lat: 47.8733945,
+      lng: 1.8419975,
+    }, {
+      name: 'Papeete',
+      ville_img: 'img/villes/BBL.jpg',
+      lat: -17.535,
+      lng: -149.5696,
+    }, {
+      name: 'Paris',
+      ville_img: 'img/villes/BBL_Paris.jpg',
+      lat: 48.856614,
+      lng: 2.352222,
+    }, {
+      name: 'Rennes',
+      ville_img: 'img/villes/BBL_BZH.jpg',
+      lat: 48.0686257,
+      lng: -1.7253652,
+    }, {
+      name: 'Rouen',
+      ville_img: 'img/villes/BBL_Rouen.jpg',
+      lat: 49.4431,
+      lng: 1.0993,
+    },
+     {
+      name: 'Saint Etienne',
+      ville_img: 'img/villes/BBL_SaintEtienne.jpg',
+      lat: 45.439695,
+      lng: 4.387178,
+    },
+     {
+      name: 'Saint-Jean-de-Luz',
+      ville_img: 'img/villes/BBL_Saint-Jean-De-Luz.png',
+      lat: 43.3933872,
+      lng: -1.6514175,
+    },
+     {
+      name: 'San Sebastian',
+      ville_img: 'img/villes/BBL_San-Sebastian.png',
+      lat: 43.3072913,
+      lng: -1.9914354,
+    },
+     {
+      name: 'Sophia-Antipolis',
+      ville_img: 'img/villes/BBL_Sophia.png',
+      lat: 43.616354,
+      lng: 7.055222,
+    },
+     {
+      name: 'Saint-Quentin-En-Yvelines',
+      ville_img: 'img/villes/BBL_SaintQuentin.png',
+      lat: 48.77186,
+      lng: 2.01891,
+    },
+     {
+      name: 'Strasbourg',
+      ville_img: 'img/villes/BBL_Strasbourg.png',
+      lat: 48.583148,
+      lng: 7.747882,
+    },
+     {
+      name: 'Toulon',
+      ville_img: 'img/villes/BBL_Toulon.jpg',
+      lat: 43.117,
+      lng: 5.9333,
+    },
+     {
+      name: 'Toulouse',
+      ville_img: 'img/villes/BBL_Toulouse.jpg',
+      lat: 43.604652,
+      lng: 1.444209,
+    },
+     {
+      name: 'Tours',
+      ville_img: 'img/villes/BBL_Tours.jpg',
+      lat: 47.396651,
+      lng: 0.694286,
+    },
+     {
+      name: 'Vannes',
+      ville_img: 'img/villes/BBL_BZH.jpg',
+      lat: 47.658236,
+      lng: -2.760847,
+    },
+     {
+      name: 'Versailles',
+      ville_img: 'img/villes/BBL_Versailles.jpg',
+      lat: 48.801408,
+      lng: 2.130122,
+    },
+     {
+      name: 'Vesoul',
+      ville_img: 'img/villes/BBL_Vesoul.png',
+      lat: 47.6323072,
+      lng: 6.1347321,
+    },
+]

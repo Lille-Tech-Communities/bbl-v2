@@ -1,0 +1,61 @@
+---
+import {getCollection} from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Expert from "../components/expert.astro";
+const og = {
+  ogUrl: "https://brownbaglunch.fr/experts.html",
+  ogImage: "/assets/img/logo.svg",
+  ogDescription: "blabla"
+};
+
+const currSection = "experts";
+const lang = "fr";
+
+const cities = await getCollection("cities");
+const speakers = await getCollection("speakers");
+---
+
+<Layout 
+	title="Index" 
+	currSection={ currSection } 
+	lang={ lang } 
+	og={ og }>
+	
+    <h1>Trouver un expert</h1>
+
+    <form class="search highlight">
+        <p>
+            <label for="ip-town">Rechercher par Ville</label>
+            <input id="ip-town" name="ip-town" list="towns">
+
+            <datalist id="towns">
+                <option value="Toutes les villes"></option>
+               {cities.map((c) => <option value={c.data.name}>{c.data.name} {c.data.number}</option>)}
+            </datalist>
+        </p>
+        <p>
+            <label for="ip-tech">Rechercher par expert ou techno</label>
+            <input id="ip-search" name="ip-search">
+        </p>
+        <p class="buttons-bar">
+            <input type="submit" value="Rechercher">
+            <input type="reset" value="Annuler">
+        </p>
+    </form>
+
+    <div class="results">
+        <h2 class="highlight">{speakers.length} experts trouvés</h2>
+
+        <div class="gallery">
+            {
+                speakers.map(s => {
+                    const data = s.data;
+                    return <Expert speaker={data} />    
+                })
+            }
+            
+        </div>
+    </div>
+
+</Layout>
+

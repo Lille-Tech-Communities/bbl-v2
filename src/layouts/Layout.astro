@@ -1,26 +1,50 @@
 ---
-import "../styles/global.css";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+
+const { title, currSection, lang, og = {} } = Astro.props;
+const { ogDescription, ogUrl, ogImage } = og;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang={ lang }>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#362F35">
+        <meta name="robots" content="noimageai">
+        <meta name="robots" content="noai">
+        <meta property="og:url" content={ ogUrl } />
+        <meta property="og:title" content={ title } />
+        <meta name="keywords" content="" />
+        <meta property="og:description" content={ ogDescription } />
+        <meta name="description" content={ ogDescription } />
+        { ogImage ? 
+            <meta property="og:image" content={"/assets/img/" +  ogImage } />
+        :
+            <meta property="og:image" content="/assets/img/touch-icon-iphone-retina.png" />
+        }
+        <link rel="canonical" href={ ogUrl } />
+        <link rel="alternate" type="application/json" href="/feed.xml">
+        <link rel="apple-touch-icon" href="/assets/img/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="/assets/img/touch-icon-ipad-retina.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/touch-icon-iphone-retina.png">
+        <link href="/assets/img/favicon.png" type="image/png" rel="icon" />
 
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+        <title>{ title }</title>
+        <link href="/assets/css/main.css" rel="stylesheet" />
+        <link rel="manifest" href="/manifest.json" />
+    </head>
+	
+<body id={currSection === "index" ? "home" : ""}>
+		
+	<Header lang={lang} currSection={ currSection }></Header>
+	<main>
+        <slot />
+    </main>
+
+    <Footer></Footer>
+</body>
+</html>

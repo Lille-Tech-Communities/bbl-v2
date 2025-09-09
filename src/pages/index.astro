@@ -1,164 +1,125 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-const data = [
-  {
-    city: "Paris",
-    name: "Adrien Joly",
-    avatar: "", // image ou avatar fictif
-    desc: 'Ingénieur logiciel passionné et polyvalent. Co-créateur du podcast "le SAV de la Tech"...',
-    talks: [
-      {
-        title:
-          "Détecter les bugs JS depuis son IDE: TSDoc et autres recettes pratiques",
-        abstract: "abstract",
-        tags: ["Code Legacy", "JavaScript", "Bugs"],
-      },
-      {
-        title: "Code legacy: les clés pour s’en sortir !",
-        tags: ["Code Legacy", "Tech Leadership", "Planification"],
-      },
-    ],
-  },
-  {
-    city: "Nantes",
-    name: "Adrien Lecharpentier",
-    avatar: "",
-    desc: "Software Engineer chez CloudBees, je travaille sur Jenkins OSS...",
-    talks: [
-      {
-        title: "Jenkins Pipeline 101",
-        tags: ["Jenkins", "Pipeline"],
-      },
-      {
-        title: "Jenkins 2.0",
-        tags: ["Jenkins"],
-      },
-    ],
-  },
-  {
-    city: "Lyon",
-    name: "Agnès Crépêt",
-    avatar: "",
-    desc: "Java Champion et leader de deux Java User Groups...",
-    talks: [
-      {
-        title: "Faire partie de l’équipe sans s’oublier",
-        tags: ["Java", "Leadership", "Inclusion"],
-      },
-    ],
-  },
-];
+const og = {
+  ogUrl: "https://brownbaglunch.fr/index.html",
+  ogImage: "/assets/img/logo.svg",
+  ogDescription: "blabla"
+};
+
+const currSection = "index";
+const lang = "fr";
 ---
 
-<Layout>
-  <div class="min-h-screen bg-gray-100 text-gray-900">
-    <header
-      class="bg-gray-900 text-white p-4 flex justify-between items-center"
-    >
-      <div class="text-xl font-bold">🥪 BrownBagLunch</div>
-      <input
-        type="search"
-        placeholder="Chercher un(e) bagger, une technologie..."
-        class="rounded px-4 py-1 text-black w-96"
-      />
-    </header>
+<Layout 
+	title="Index" 
+	currSection={ currSection } 
+	lang={ lang } 
+	og={ og }>
+	<div class="hero">
+		<div class="pic"><img src="/assets/img/expert-pic.svg" alt=""></div>
+		{ lang === 'fr' ?
+			<p>
+				<strong>Les meilleurs</strong>
+				<strong>experts</strong>
+				<strong>pour un midi chez vous</strong>
+				<strong>gratuitement</strong>
+			</p>
+			:
+			<p class="en-version">
+				<strong>Have the best</strong>
+				<strong>experts</strong>
+				<strong>for lunch with you</strong>
+				<strong>with no fee</strong>
+			</p>
+		}
+	</div>
+	<p class="hero-button">
+		<a class="button-like" href="experts.html">Trouvez un expert</a>
+	</p>
 
-    <div class="flex">
-      <aside
-        class="w-64 bg-white border-r p-4 overflow-y-auto h-screen sticky top-0"
-      >
-        <h2 class="font-bold mb-2">Choisissez la ville</h2>
-        <ul class="space-y-1 text-sm">
-          <li class="font-semibold">
-            Toutes les villes <span class="ml-1 text-blue-600">(342)</span>
-          </li>
-          {
-            [
-              "Aix-en-Provence",
-              "Amiens",
-              "Bayonne",
-              "Lille",
-              "Paris",
-              "Nantes",
-              "Lyon",
-              "Rennes",
-              "Strasbourg",
-            ].map((city) => (
-              <li
-                key={city}
-                class="flex justify-between hover:bg-gray-100 px-2 py-1 rounded cursor-pointer"
-              >
-                <span>{city}</span>
-                <span class="text-blue-600">
-                  ({Math.floor(Math.random() * 100)})
-                </span>
-              </li>
-            ))
-          }
-        </ul>
-      </aside>
+	<section id="what" class="home-entry editorial">
+		<h2>Comment ça marche&nbsp;?</h2>
 
-      <main class="flex-1 p-6 overflow-y-auto">
-        <h1 class="text-2xl font-bold mb-4">342 baggers</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {
-            data.map((bagger) => (
-              <div key={bagger.name} class="bg-white rounded shadow p-4 border">
-                <div class="relative">
-                  <img
-                    src={`https://source.unsplash.com/600x120/?${bagger.city}`}
-                    alt={bagger.city}
-                    class="w-full h-28 object-cover rounded"
-                  />
-                  <div class="absolute top-2 left-2 bg-black/60 text-white px-2 rounded text-sm font-bold">
-                    {bagger.city}
-                  </div>
-                </div>
-                <div class="flex items-center mt-4 space-x-3">
-                  <div class="w-12 h-12 bg-gray-300 rounded-full" />
-                  <div class="flex-1">
-                    <h3 class="font-bold text-lg">{bagger.name}</h3>
-                    <p class="text-sm text-gray-600">{bagger.desc}</p>
-                  </div>
-                  <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm">
-                    📩 Inviter
-                  </button>
-                </div>
-                <div class="mt-4 space-y-2">
-                  {bagger.talks.map((talk, i) => (
-                    <details
-                      key={i}
-                      className="rounded border border-gray-200 bg-gray-50 p-3 open:shadow-sm transition-all"
-                    >
-                      <summary className="cursor-pointer font-semibold text-sm hover:underline">
-                        {talk.title}
-                      </summary>
+		<div class="grid-3">
+			<div class="group">
+				<p class="pic"><img src="/assets/img/search-pic.svg" alt=""></p>
+				<h3>Vous trouvez un expert</h3>
+				<p><a href="">Trouvez un expert</a> près de chez vous,
+					ayant un sujet qui vous intéresse. 
+					Contactez-le pour définir une date.</p>
+			</div>
+			<div class="group">
+				<p class="pic"><img src="/assets/img/lunch-pic.svg" alt=""></p>
+				<h3>Vous l'offrez le déjeuner</h3>
+				<p>L'expert apporte ses connaissances, vous le repas.</p>
+			</div>
+			<div class="group">
+				<p class="pic"><img src="/assets/img/enjoy-pic.svg" alt=""></p>
+				<h3>Vous passez un très bon moment</h3>
+				<p>Profiter de la présence de l'expert pour approfondir 
+					un sujet et à le rendre plus concret dans le 
+					cadre de votre entreprise.</p>
+			</div>
+		</div>
+	</section>
 
-                      <div clss="mt-2 text-sm text-gray-700">
-                        <p>{talk.abstract}</p>
+	<div class="home-highlight">
+		<figure class="quotation">
+			<blockquote>
+				<p>A chaque fois, le public a apprécié la qualité des 
+					présentations, et de mon côté, en tant qu’organisateur, 
+					j’apprécie de voir leur enthousiasme. 
+					<!-- Leur nombre 
+					ne cesse d’ailleurs de croitre, passant de 20 à 25, 
+					et peut-être même d’avantage pour les prochaines sessions. -->
+				</p>
+			</blockquote>
+			<figcaption>
+				&mdash; Romain Linsolas &ndash; 
+				<cite>
+					<a href="http://linsolas.github.com/blog/2013/02/09/lancez-vous-dans-les-brown-bag-lunches/">
+						Lancez-vous dans les brown bag lunch</a>
+				</cite>
+			</figcaption>
+		</figure>
+	</div>
 
-                        <div class="mt-2 flex flex-wrap gap-2">
-                          {talk.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              class="text-xs px-2 py-0.5 rounded-full font-medium bg-blue-100 text-blue-800"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </main>
-    </div>
-  </div>
+	<section id="share" class="home-entry editorial">
+		<p class="pic"><img src="/assets/img/talk-pic.svg" alt=""></p>
+		<h2>Vous souhaitez partager votre expérience&nbsp;?</h2>
+		<div class="content">
+			<p>Vous avez une expertise que vous souhaitez partager avec d'autres&nbsp;? 
+				Faites un Brown bag lunch! Vous pourrez ainsi&nbsp;: </p>
+			<ul>
+				<li>&ldquo;roder&rdquo; une présentation avant de la jouer devant un plus grand public</li>
+				<li>agrandir votre réseau, vous faire de la publicité</li>
+				<li>partager votre passion avec d'autres&nbsp;!</li>
+			</ul>
+
+			<p>Pour vous faire connaître c'est très simple&nbsp;: 
+				Ajoutez vous vite sur <a href="">notre repo github</a>.</p>
+		</div>
+	</section>
+
+	<section id="press" class="home-entry editorial">
+		<h2>On parle de Brown Bag Lunches&nbsp;!</h2>
+		<div class="content">
+			<p>Retrouvez ici les blogs qui parlent des Brown Bag Lunches&nbsp;: </p>
+			<ul>
+				<li>
+					<a href="http://me.andering.com/2006/05/25/brown-bag-session/">Brown Bag Session, Willem van den Ende</a>
+				</li>
+				<li>
+					<a href="https://linsolas.github.io/blog/2013/02/09/lancez-vous-dans-les-brown-bag-lunches/">Lancez-vous dans les Brown Bag Lunches, Romain Linsolas</a>
+				</li>
+				<li>
+					<a href="https://blog.javabien.net/2012/11/05/bbl/">Brown Bag Lunch, David Gageot</a>
+				</li>
+			</ul>
+
+			<p>Il en manque&nbsp;? Vous en parlez vous-mêmes dans votre blog&nbsp;? 
+				Envoyez nous <a href="">un tweet</a>, on l'ajoutera à la liste&nbsp;!</p>
+		</div>
+	</section>
 </Layout>
