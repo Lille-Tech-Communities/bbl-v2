@@ -4,122 +4,128 @@ import Layout from "../layouts/Layout.astro";
 const og = {
   ogUrl: "https://brownbaglunch.fr/index.html",
   ogImage: "/assets/img/logo.svg",
-  ogDescription: "blabla"
+  ogDescription: "blabla",
 };
 
 const currSection = "index";
 const lang = "fr";
 ---
 
-<Layout 
-	title="Index" 
-	currSection={ currSection } 
-	lang={ lang } 
-	og={ og }>
-	<div class="hero">
-		<div class="pic"><img src="/assets/img/expert-pic.svg" alt=""></div>
-		{ lang === 'fr' ?
-			<p>
-				<strong>Les meilleurs</strong>
-				<strong>experts</strong>
-				<strong>pour un midi chez vous</strong>
-				<strong>gratuitement</strong>
-			</p>
-			:
-			<p class="en-version">
-				<strong>Have the best</strong>
-				<strong>experts</strong>
-				<strong>for lunch with you</strong>
-				<strong>with no fee</strong>
-			</p>
-		}
-	</div>
-	<p class="hero-button">
-		<a class="button-like" href="experts.html">Trouvez un expert</a>
-	</p>
+<Layout title="Index" currSection={currSection} lang={lang} og={og}>
+  <div class="hero">
+    <div class="pic"><img src="/assets/img/expert-pic.svg" alt="" /></div>
+    {
+      lang === "fr" ? (
+        <p>
+          <strong>Les meilleurs</strong>
+          <strong>experts</strong>
+          <strong>pour un midi chez vous</strong>
+          <strong>gratuitement</strong>
+        </p>
+      ) : (
+        <p class="en-version">
+          <strong>Have the best</strong>
+          <strong>experts</strong>
+          <strong>for lunch with you</strong>
+          <strong>with no fee</strong>
+        </p>
+      )
+    }
+  </div>
+  <p class="hero-button">
+    <a class="button-like" href="experts">Trouvez un expert</a>
+  </p>
 
-	<section id="what" class="home-entry editorial">
-		<h2>Comment ça marche&nbsp;?</h2>
+  <section id="what" class="home-entry editorial">
+    <h2>Comment ça marche&nbsp;?</h2>
 
-		<div class="grid-3">
-			<div class="group">
-				<p class="pic"><img src="/assets/img/search-pic.svg" alt=""></p>
-				<h3>Vous trouvez un expert</h3>
-				<p><a href="">Trouvez un expert</a> près de chez vous,
-					ayant un sujet qui vous intéresse. 
-					Contactez-le pour définir une date.</p>
-			</div>
-			<div class="group">
-				<p class="pic"><img src="/assets/img/lunch-pic.svg" alt=""></p>
-				<h3>Vous l'offrez le déjeuner</h3>
-				<p>L'expert apporte ses connaissances, vous le repas.</p>
-			</div>
-			<div class="group">
-				<p class="pic"><img src="/assets/img/enjoy-pic.svg" alt=""></p>
-				<h3>Vous passez un très bon moment</h3>
-				<p>Profiter de la présence de l'expert pour approfondir 
-					un sujet et à le rendre plus concret dans le 
-					cadre de votre entreprise.</p>
-			</div>
-		</div>
-	</section>
+    <div class="grid-3">
+      <div class="group">
+        <p class="pic"><img src="/assets/img/search-pic.svg" alt="" /></p>
+        <h3>Vous trouvez un expert</h3>
+        <p>
+          <a href="">Trouvez un expert</a> près de chez vous, ayant un sujet qui vous intéresse. Contactez-le pour définir
+          une date.
+        </p>
+      </div>
+      <div class="group">
+        <p class="pic"><img src="/assets/img/lunch-pic.svg" alt="" /></p>
+        <h3>Vous l'offrez le déjeuner</h3>
+        <p>L'expert apporte ses connaissances, vous le repas.</p>
+      </div>
+      <div class="group">
+        <p class="pic"><img src="/assets/img/enjoy-pic.svg" alt="" /></p>
+        <h3>Vous passez un très bon moment</h3>
+        <p>
+          Profiter de la présence de l'expert pour approfondir un sujet et à le rendre plus concret dans le cadre de
+          votre entreprise.
+        </p>
+      </div>
+    </div>
+  </section>
 
-	<div class="home-highlight">
-		<figure class="quotation">
-			<blockquote>
-				<p>A chaque fois, le public a apprécié la qualité des 
-					présentations, et de mon côté, en tant qu’organisateur, 
-					j’apprécie de voir leur enthousiasme. 
-					<!-- Leur nombre 
+  <div class="home-highlight">
+    <figure class="quotation">
+      <blockquote>
+        <p>
+          A chaque fois, le public a apprécié la qualité des présentations, et de mon côté, en tant qu’organisateur,
+          j’apprécie de voir leur enthousiasme.
+          <!-- Leur nombre 
 					ne cesse d’ailleurs de croitre, passant de 20 à 25, 
 					et peut-être même d’avantage pour les prochaines sessions. -->
-				</p>
-			</blockquote>
-			<figcaption>
-				&mdash; Romain Linsolas &ndash; 
-				<cite>
-					<a href="http://linsolas.github.com/blog/2013/02/09/lancez-vous-dans-les-brown-bag-lunches/">
-						Lancez-vous dans les brown bag lunch</a>
-				</cite>
-			</figcaption>
-		</figure>
-	</div>
+        </p>
+      </blockquote>
+      <figcaption>
+        &mdash; Romain Linsolas &ndash;
+        <cite>
+          <a href="http://linsolas.github.com/blog/2013/02/09/lancez-vous-dans-les-brown-bag-lunches/">
+            Lancez-vous dans les brown bag lunch</a
+          >
+        </cite>
+      </figcaption>
+    </figure>
+  </div>
 
-	<section id="share" class="home-entry editorial">
-		<p class="pic"><img src="/assets/img/talk-pic.svg" alt=""></p>
-		<h2>Vous souhaitez partager votre expérience&nbsp;?</h2>
-		<div class="content">
-			<p>Vous avez une expertise que vous souhaitez partager avec d'autres&nbsp;? 
-				Faites un Brown bag lunch! Vous pourrez ainsi&nbsp;: </p>
-			<ul>
-				<li>&ldquo;roder&rdquo; une présentation avant de la jouer devant un plus grand public</li>
-				<li>agrandir votre réseau, vous faire de la publicité</li>
-				<li>partager votre passion avec d'autres&nbsp;!</li>
-			</ul>
+  <section id="share" class="home-entry editorial">
+    <p class="pic"><img src="/assets/img/talk-pic.svg" alt="" /></p>
+    <h2>Vous souhaitez partager votre expérience&nbsp;?</h2>
+    <div class="content">
+      <p>
+        Vous avez une expertise que vous souhaitez partager avec d'autres&nbsp;? Faites un Brown bag lunch! Vous pourrez
+        ainsi&nbsp;:
+      </p>
+      <ul>
+        <li>&ldquo;roder&rdquo; une présentation avant de la jouer devant un plus grand public</li>
+        <li>agrandir votre réseau, vous faire de la publicité</li>
+        <li>partager votre passion avec d'autres&nbsp;!</li>
+      </ul>
 
-			<p>Pour vous faire connaître c'est très simple&nbsp;: 
-				Ajoutez vous vite sur <a href="">notre repo github</a>.</p>
-		</div>
-	</section>
+      <p>Pour vous faire connaître c'est très simple&nbsp;: Ajoutez vous vite sur <a href="">notre repo github</a>.</p>
+    </div>
+  </section>
 
-	<section id="press" class="home-entry editorial">
-		<h2>On parle de Brown Bag Lunches&nbsp;!</h2>
-		<div class="content">
-			<p>Retrouvez ici les blogs qui parlent des Brown Bag Lunches&nbsp;: </p>
-			<ul>
-				<li>
-					<a href="http://me.andering.com/2006/05/25/brown-bag-session/">Brown Bag Session, Willem van den Ende</a>
-				</li>
-				<li>
-					<a href="https://linsolas.github.io/blog/2013/02/09/lancez-vous-dans-les-brown-bag-lunches/">Lancez-vous dans les Brown Bag Lunches, Romain Linsolas</a>
-				</li>
-				<li>
-					<a href="https://blog.javabien.net/2012/11/05/bbl/">Brown Bag Lunch, David Gageot</a>
-				</li>
-			</ul>
+  <section id="press" class="home-entry editorial">
+    <h2>On parle de Brown Bag Lunches&nbsp;!</h2>
+    <div class="content">
+      <p>Retrouvez ici les blogs qui parlent des Brown Bag Lunches&nbsp;:</p>
+      <ul>
+        <li>
+          <a href="http://me.andering.com/2006/05/25/brown-bag-session/">Brown Bag Session, Willem van den Ende</a>
+        </li>
+        <li>
+          <a href="https://linsolas.github.io/blog/2013/02/09/lancez-vous-dans-les-brown-bag-lunches/"
+            >Lancez-vous dans les Brown Bag Lunches, Romain Linsolas</a
+          >
+        </li>
+        <li>
+          <a href="https://blog.javabien.net/2012/11/05/bbl/">Brown Bag Lunch, David Gageot</a>
+        </li>
+      </ul>
 
-			<p>Il en manque&nbsp;? Vous en parlez vous-mêmes dans votre blog&nbsp;? 
-				Envoyez nous <a href="">un tweet</a>, on l'ajoutera à la liste&nbsp;!</p>
-		</div>
-	</section>
+      <p>
+        Il en manque&nbsp;? Vous en parlez vous-mêmes dans votre blog&nbsp;? Envoyez nous <a href="">un tweet</a>, on
+        l'ajoutera à la liste&nbsp;!
+      </p>
+    </div>
+  </section>
 </Layout>

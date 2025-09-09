@@ -3,21 +3,23 @@ const { lang, currSection = {} } = Astro.props;
 ---
 
 <header>
-  { currSection == "index" ? 
+  {
+    currSection == "index" ? (
       <h1 class="site" lang="en">
-          <img src="/assets/img/logo-full.svg" alt="" />
-          <strong>Brown Bag Lunch</strong>
+        <img src="/assets/img/logo-full.svg" alt="" />
+        <strong>Brown Bag Lunch</strong>
       </h1>
-      :
+    ) : (
       <p class="site" lang="en">
         <a href="index.html">
           <img src="/assets/img/logo-full.svg" alt="" />
           <strong>Brown Bag Lunch</strong>
         </a>
       </p>
-    }
-    <p>{ lang === 'fr' ? 'France' : 'Edinbourgh' }</p>
-    <!-- <p>
+    )
+  }
+  <p>{lang === "fr" ? "France" : "Edinbourgh"}</p>
+  <!-- <p>
       <svg width="300px" height="300px" viewBox="0 0 300 300">
         <defs>
           <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
@@ -30,42 +32,30 @@ const { lang, currSection = {} } = Astro.props;
         </g>
       </svg>
     </p> -->
-    
-    <nav aria-label="Navigation Principale">
-        <button id="nav-control">
-            <svg role="img" width="24" height="24">
-                <title>Menu</title>
-                <use href="./assets/img/sprite.svg#ic-menu"></use>
-              </svg>
-        </button>
-        <p class="k-skip"><a href="#wrapper">Navigation (Sauter)</a></p>
-        <ul>
-            <li>
-              <a
-                href="/index.html"
-                aria-current={currSection == "index" ? "page" : null}>
-                Accueil</a>
-            </li>
-            <li>
-              <a
-                href="/index.html#what"
-                aria-current={currSection == "what" ? "page" : null}>
-                Comment ça marche ?</a>
-            </li>
-            <li>
-              <a
-                href="/experts.html"
-                aria-current={currSection == "experts" ? "page" : null}>
-                Trouver un Expert</a>
-            </li>
-            <li>
-              <a
-                href="/index.html#share"
-                aria-current={currSection == "share" ? "page" : null}>
-                Partagez votre expérience</a>
-            </li>
-        </ul>
-    </nav>
+
+  <nav aria-label="Navigation Principale">
+    <button id="nav-control">
+      <svg role="img" width="24" height="24">
+        <title>Menu</title>
+        <use href="./assets/img/sprite.svg#ic-menu"></use>
+      </svg>
+    </button>
+    <p class="k-skip"><a href="#wrapper">Navigation (Sauter)</a></p>
+    <ul>
+      <li>
+        <a href="/index.html" aria-current={currSection == "index" ? "page" : null}> Accueil</a>
+      </li>
+      <li>
+        <a href="/index.html#what" aria-current={currSection == "what" ? "page" : null}> Comment ça marche ?</a>
+      </li>
+      <li>
+        <a href="/experts" aria-current={currSection == "experts" ? "page" : null}> Trouver un Expert</a>
+      </li>
+      <li>
+        <a href="/index.html#share" aria-current={currSection == "share" ? "page" : null}> Partagez votre expérience</a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <script is:inline src="/assets/js/nav.js"></script>
