@@ -9,11 +9,13 @@ const { speaker } = Astro.props;
 ---
 
 <section class="speaker-sheet h-card">
-  <h3>
-    <span class="p-name">{ speaker.name }</span>
+  <p class="photo">
     <img class="u-photo" src={speaker.picture ?? "/assets/img/expert-thumb.svg"} alt="" />
-  </h3>
+  </p>
   <div class="p-note editorial">
+    <h3>
+      <span class="p-name">{ speaker.name }</span>
+    </h3>
     <p set:html={speaker.bio}}></p>
     <ul class="keywords">
       {Array.from(new Set(speaker.sessions?.map(t => t.tags).flat())).map(t => <li>{t}</li>)}
@@ -35,6 +37,8 @@ const { speaker } = Astro.props;
     </details>)}
     
   </div>
+
+  <!-- Ajouter une condition ici pour ne pas montrer le bloc s'il n'y a pas d'info -->
   <div class="contact">
     <h4>Contact</h4>
     <ul>

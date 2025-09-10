@@ -65,6 +65,6 @@ CSS Custom Properties
     --fvs-medium: "wght" 500;
     --fvs-light: "wght" 300;
 
-    --main-m-bottom: calc(3rem + 1vw);
+    --main-m-bottom: calc(3rem + 3vw);
   }
   
