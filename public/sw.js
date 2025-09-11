@@ -3,6 +3,7 @@ const cacheName = 'bbl-01';
 const filesToCache = [
   '/',
   '/assets/css/Outfit-VariableFont_wght.ttf',
+  '/assets/css/Unbounded-VariableFont_wght.ttf',
   '/assets/css/vars.css'
 ];
 

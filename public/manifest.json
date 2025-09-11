@@ -6,45 +6,45 @@
   "default_locale": "fr",
   "description": "Vous souhaitez amener de la discussion dans votre entreprise, découvrir de nouveaux sujets? Faites venir les meilleurs experts de votre ville dans vos locaux le temps d'un repas.",
   "icons": [{
-        "src": "/img/maskable-logo.png",
+        "src": "/assets/img/maskable-logo.png",
         "sizes": "196x196",
         "type": "image/png",
         "purpose": "maskable"
       }, {
-        "src": "/img/icon48.png",
+        "src": "/assets/img/icon48.png",
         "sizes": "48x48",
         "type": "image/png"
       }, {
-        "src": "/img/icon128.png",
+        "src": "/assets/img/icon128.png",
         "sizes": "128x128",
         "type": "image/png"
       }, {
-        "src": "/img/icon144.png",
+        "src": "/assets/img/icon144.png",
         "sizes": "144x144",
         "type": "image/png"
       }, {
-        "src": "/img/icon192.png",
+        "src": "/assets/img/icon192.png",
         "sizes": "192x192",
         "type": "image/png"
       }, {
-        "src": "/img/icon256.png",
+        "src": "/assets/img/icon256.png",
         "sizes": "256x256",
         "type": "image/png"
       }, {
-        "src": "/img/icon512.png",
+        "src": "/assets/img/icon512.png",
         "sizes": "512x512",
         "type": "image/png"
       }],
     "screenshots": [
       {
-        "src": "/img/home.webp",
+        "src": "/assets/img/home.webp",
         "sizes": "1280x720",
         "type": "image/webp",
         "form_factor": "wide",
         "label": "Home screen showing main navigation and featured content"
       },
       {
-        "src": "/img/homemobile.webp",
+        "src": "/assets/img/homemobile.webp",
         "sizes": "540x720",
         "type": "image/webp",
         "platform": "android",
