@@ -129,7 +129,12 @@ blockquote::before {
 
 /* ------------------------------ STRUCTURE ------------------------- */
 
+
 main {
+    margin: calc(3rem + 1vmax) 5vw;
+}
+
+#home main {
     margin: var(--main-m-bottom) 5vw;
 }
 
